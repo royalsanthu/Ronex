@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronex | Trading Strategy & Input Parameters</title>
+    <meta name="description" content="In-depth overview of the Ronex Expert Advisor's trading logic, EMA confluences, engulfing triggers, and customizable inputs on MetaTrader 5.">
+    <!-- Google Fonts: Outfit for sleek, modern tech look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons for clean visual cues -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header" id="site-header">
+        <div class="container header-container">
+            <div class="logo-area">
+                <img src="assets/logo.jpg" alt="Ronex Logo" class="logo-img">
+                <span class="logo-text">RONEX<span class="accent-dot">.</span></span>
+            </div>
+            
+            <nav class="desktop-nav" id="main-navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="strategy.html" class="nav-link">Strategy</a>
+                <a href="calculator.html" class="nav-link">ROI Simulator</a>
+                <a href="setup.html" class="nav-link">Setup Guide</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank" class="btn btn-primary btn-nav" id="nav-cta">
+                    <span>Get Ronex</span>
+                    <i data-lucide="arrow-up-right" class="icon-sm"></i>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                    <i data-lucide="menu" id="menu-icon-hamburger"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-nav-drawer">
+        <div class="drawer-header">
+            <div class="logo-area">
+                <img src="assets/logo.jpg" alt="Ronex Logo" class="logo-img">
+                <span class="logo-text">RONEX<span class="accent-dot">.</span></span>
+            </div>
+            <button class="mobile-menu-close" id="mobile-menu-close-btn" aria-label="Close Menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="strategy.html" class="mobile-nav-link">Strategy</a>
+            <a href="calculator.html" class="mobile-nav-link">ROI Simulator</a>
+            <a href="setup.html" class="mobile-nav-link">Setup Guide</a>
+            <a href="faq.html" class="mobile-nav-link">FAQ</a>
+            <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank" class="btn btn-primary mobile-cta">Get Ronex on MQL5</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Subpage Hero -->
+        <section class="subpage-hero">
+            <div class="container">
+                <div class="badge-container">
+                    <span class="glow-badge"><i data-lucide="compass" class="icon-sm" style="margin-right: 6px;"></i>TRADING LOGIC</span>
+                </div>
+                <h1 class="subpage-title">Strategy & <span class="gradient-text">Parameters</span></h1>
+                <p class="subpage-subtitle">A professional-grade MT5 algorithmic system engineered with trend-following confluence, momentum guards, and absolute risk controls.</p>
+            </div>
+        </section>
+
+        <!-- Strategy Details Section -->
+        <section class="about-section" id="strategy-details" style="padding-top: 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">The Strategy Confluences</h2>
+                    <p class="section-subtitle">Ronex integrates multiple technical filters to prioritize capital safety and capture clean trend expansions.</p>
+                </div>
+                <div class="about-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                    <div class="about-card glow-card">
+                        <div class="icon-box bg-blue">
+                            <i data-lucide="trending-up" class="text-blue"></i>
+                        </div>
+                        <h3>Trend & Pullback Confluence</h3>
+                        <p>Ronex integrates a macro 200 EMA trend filter and a minor 20 EMA pullback baseline, ensuring entries occur strictly at discount prices rather than chasing extended markets.</p>
+                    </div>
+                    <div class="about-card glow-card">
+                        <div class="icon-box bg-green">
+                            <i data-lucide="sparkles" class="text-green"></i>
+                        </div>
+                        <h3>Engulfing Price Action Trigger</h3>
+                        <p>Executes entries with high-probability precision, triggering trades only upon valid bullish or bearish engulfing candlesticks at structural pullback zones.</p>
+                    </div>
+                    <div class="about-card glow-card">
+                        <div class="icon-box bg-blue">
+                            <i data-lucide="shield-check" class="text-blue"></i>
+                        </div>
+                        <h3>ADX Momentum Guard</h3>
+                        <p>Evaluates the Average Directional Index (ADX) to block entries during choppy, low-liquidity, or ranging conditions, avoiding false breakouts.</p>
+                    </div>
+                    <div class="about-card glow-card">
+                        <div class="icon-box bg-red">
+                            <i data-lucide="git-branch" class="text-red"></i>
+                        </div>
+                        <h3>Defensive Smart Grid</h3>
+                        <p>Features a highly conservative, mathematically calculated recovery grid capped at 3 levels by default, utilizing automatic average break-even basket targets.</p>
+                    </div>
+                    <div class="about-card glow-card">
+                        <div class="icon-box bg-green">
+                            <i data-lucide="sliders" class="text-green"></i>
+                        </div>
+                        <h3>Smart Trailing Stop</h3>
+                        <p>Secures accumulated profit automatically as trade positions move in your favor. Integrates safety-check levels to prevent broker execution errors.</p>
+                    </div>
+                    <div class="about-card glow-card">
+                        <div class="icon-box bg-red">
+                            <i data-lucide="shield" class="text-red"></i>
+                        </div>
+                        <h3>Daily Equity Protection</h3>
+                        <p>Hardcoded Daily Profit Targets and Daily Loss Limits close all active trades and suspend EA operations for the day once hit, preserving your balance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customizable Parameters Section -->
+        <section class="parameters-section" id="parameters" style="background-color: var(--bg-darker); padding: 100px 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Fully Customizable Parameters</h2>
+                    <p class="section-subtitle">Fine-tune Ronex directly from the MT5 inputs tab to match your specific risk profile and portfolio structure.</p>
+                </div>
+                <div class="parameters-grid">
+                    <div class="parameters-card glow-card">
+                        <div class="param-header">
+                            <i data-lucide="sliders" class="text-blue"></i>
+                            <h4>1. Structural Entry Settings</h4>
+                        </div>
+                        <ul class="param-list">
+                            <li><strong>EMA 200 Period:</strong> Defines the macro trend direction baseline.</li>
+                            <li><strong>EMA 20 Period:</strong> Defines the minor pullback structure zone.</li>
+                            <li><strong>Risk-to-Reward Ratio:</strong> Custom targets (e.g., 2.0 = 1:2 R:R).</li>
+                        </ul>
+                    </div>
+
+                    <div class="parameters-card glow-card">
+                        <div class="param-header">
+                            <i data-lucide="shield-alert" class="text-green"></i>
+                            <h4>2. Risk & Account Limits</h4>
+                        </div>
+                        <ul class="param-list">
+                            <li><strong>Fixed Lot Size:</strong> Sets the base trade entry volume.</li>
+                            <li><strong>Max Lot Limit:</strong> Caps maximum trade volume for safety.</li>
+                            <li><strong>Daily Profit Target Cap ($):</strong> Daily yield ceiling to halt operations.</li>
+                            <li><strong>Daily Loss Limit Cap ($):</strong> Absolute maximum daily loss boundary.</li>
+                        </ul>
+                    </div>
+
+                    <div class="parameters-card glow-card">
+                        <div class="param-header">
+                            <i data-lucide="git-branch" class="text-red"></i>
+                            <h4>3. Defensive Smart Grid</h4>
+                        </div>
+                        <ul class="param-list">
+                            <li><strong>Max Grid Levels:</strong> Hard recovery cap (default 3 levels).</li>
+                            <li><strong>Grid Spacing (Pips):</strong> PIP distance spacing between recovery orders.</li>
+                            <li><strong>Grid Multiplier:</strong> Multiplier volume (1.0 = same size recovery).</li>
+                            <li><strong>Basket Net Target (Pips):</strong> Profit target for average break-even exit.</li>
+                        </ul>
+                    </div>
+
+                    <div class="parameters-card glow-card">
+                        <div class="param-header">
+                            <i data-lucide="line-chart" class="text-blue"></i>
+                            <h4>4. Trend Strength Filter (ADX)</h4>
+                        </div>
+                        <ul class="param-list">
+                            <li><strong>ADX Period:</strong> Average period smoothing for trend tracking.</li>
+                            <li><strong>Minimum ADX Level:</strong> Entry threshold level (default 22.0).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" id="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo-area">
+                    <img src="assets/logo.jpg" alt="Ronex Logo" class="logo-img">
+                    <span class="logo-text">RONEX<span class="accent-dot">.</span></span>
+                </div>
+                <p class="brand-desc">Institutional-grade algorithmic trading strategies tailored for the retail trader.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h5>Navigation</h5>
+                <a href="strategy.html">About Strategy</a>
+                <a href="index.html#features">Core Features</a>
+                <a href="calculator.html">ROI Calculator</a>
+                <a href="calculator.html#performance">Stats</a>
+            </div>
+
+            <div class="footer-links">
+                <h5>MQL5 Community</h5>
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank">MQL5 Product Page</a>
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank">Expert Advisor Demo</a>
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank">Reviews & Comments</a>
+            </div>
+        </div>
+
+        <div class="container disclaimer-container">
+            <div class="risk-disclaimer">
+                <strong>High-Risk Investment Warning:</strong> Trading Foreign Exchange (Forex) on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade foreign exchange or use algorithmic trading systems, you should carefully consider your investment objectives, level of experience, and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment. You should be aware of all the risks associated with foreign exchange trading and seek advice from an independent financial advisor if you have any doubts. Past performance of algorithmic tools like Ronex is not indicative of future results.
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ronex Algo. All Rights Reserved. Not affiliated with MetaQuotes Ltd.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Telegram"><i data-lucide="send"></i></a>
+                    <a href="#" aria-label="Youtube"><i data-lucide="youtube"></i></a>
+                    <a href="#" aria-label="Discord"><i data-lucide="message-square"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

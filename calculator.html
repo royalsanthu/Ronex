@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronex | Interactive ROI Simulator & Specifications</title>
+    <meta name="description" content="Simulate potential returns with the Ronex interactive ROI calculator. View 10-year historical backtesting data and complete technical specifications for MT5.">
+    <!-- Google Fonts: Outfit for sleek, modern tech look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons for clean visual cues -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header" id="site-header">
+        <div class="container header-container">
+            <div class="logo-area">
+                <img src="assets/logo.jpg" alt="Ronex Logo" class="logo-img">
+                <span class="logo-text">RONEX<span class="accent-dot">.</span></span>
+            </div>
+            
+            <nav class="desktop-nav" id="main-navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="strategy.html" class="nav-link">Strategy</a>
+                <a href="calculator.html" class="nav-link">ROI Simulator</a>
+                <a href="setup.html" class="nav-link">Setup Guide</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank" class="btn btn-primary btn-nav" id="nav-cta">
+                    <span>Get Ronex</span>
+                    <i data-lucide="arrow-up-right" class="icon-sm"></i>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                    <i data-lucide="menu" id="menu-icon-hamburger"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-nav-drawer">
+        <div class="drawer-header">
+            <div class="logo-area">
+                <img src="assets/logo.jpg" alt="Ronex Logo" class="logo-img">
+                <span class="logo-text">RONEX<span class="accent-dot">.</span></span>
+            </div>
+            <button class="mobile-menu-close" id="mobile-menu-close-btn" aria-label="Close Menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="strategy.html" class="mobile-nav-link">Strategy</a>
+            <a href="calculator.html" class="mobile-nav-link">ROI Simulator</a>
+            <a href="setup.html" class="mobile-nav-link">Setup Guide</a>
+            <a href="faq.html" class="mobile-nav-link">FAQ</a>
+            <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank" class="btn btn-primary mobile-cta">Get Ronex on MQL5</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Subpage Hero -->
+        <section class="subpage-hero">
+            <div class="container">
+                <div class="badge-container">
+                    <span class="glow-badge"><i data-lucide="calculator" class="icon-sm" style="margin-right: 6px;"></i>PERFORMANCE</span>
+                </div>
+                <h1 class="subpage-title">Interactive <span class="gradient-text">ROI Simulator</span></h1>
+                <p class="subpage-subtitle">Simulate potential outcomes and review extensive system testing specifications based on 10 years of historical data.</p>
+            </div>
+        </section>
+
+        <!-- ROI Calculator Section -->
+        <section class="calculator-section" id="calculator" style="padding-top: 0;">
+            <div class="container">
+                <div class="calculator-box">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <div class="slider-header">
+                                <label for="deposit-slider">Initial Capital ($)</label>
+                                <span class="slider-value" id="deposit-value">$5,000</span>
+                            </div>
+                            <input type="range" id="deposit-slider" min="500" max="50000" step="500" value="5000" class="custom-slider">
+                            <div class="slider-labels">
+                                <span>$500</span>
+                                <span>$25,000</span>
+                                <span>$50,000</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="group-title">Risk Profile</label>
+                            <div class="risk-selector">
+                                <label class="risk-option" id="risk-low-label">
+                                    <input type="radio" name="risk-profile" value="low" checked id="risk-low">
+                                    <div class="risk-card">
+                                        <i data-lucide="shield-check" class="text-green"></i>
+                                        <span class="risk-title">Conservative</span>
+                                        <span class="risk-desc">Low drawdown, steady returns</span>
+                                    </div>
+                                </label>
+                                <label class="risk-option" id="risk-med-label">
+                                    <input type="radio" name="risk-profile" value="med" id="risk-med">
+                                    <div class="risk-card">
+                                        <i data-lucide="zap" class="text-blue"></i>
+                                        <span class="risk-title">Balanced</span>
+                                        <span class="risk-desc">Standard settings, optimal trade-off</span>
+                                    </div>
+                                </label>
+                                <label class="risk-option" id="risk-high-label">
+                                    <input type="radio" name="risk-profile" value="high" id="risk-high">
+                                    <div class="risk-card">
+                                        <i data-lucide="flame" class="text-red"></i>
+                                        <span class="risk-title">Aggressive</span>
+                                        <span class="risk-desc">Maximum yield, higher risk tolerance</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-outputs">
+                        <h4 class="output-title">Estimated Outcomes</h4>
+                        <div class="output-grid">
+                            <div class="output-card">
+                                <span class="output-label">Avg. Monthly Profit</span>
+                                <span class="output-val text-green" id="calc-monthly">$150.00</span>
+                            </div>
+                            <div class="output-card">
+                                <span class="output-label">Avg. Annual Profit</span>
+                                <span class="output-val text-blue" id="calc-annual">$1,800.00</span>
+                            </div>
+                            <div class="output-card full-width">
+                                <span class="output-label">Expected Historical Drawdown Limit</span>
+                                <span class="output-val text-red" id="calc-drawdown">&lt; 5.0%</span>
+                            </div>
+                        </div>
+                        <div class="calc-disclaimer">
+                            <i data-lucide="info" class="icon-sm"></i>
+                            <p>Simulation parameters are generated based on historical backtesting averages. Past performance does not guarantee future results. Please trade responsibly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specs and Metrics Section -->
+        <section class="performance-section" id="performance" style="background-color: var(--bg-darker); padding: 100px 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Specifications & Backtests</h2>
+                    <p class="section-subtitle">Engineered strictly for MetaTrader 5. Below are verified system parameters and consolidated metrics from over a decade of backtest data.</p>
+                </div>
+
+                <!-- Technical Specs Cards Grid -->
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <span class="spec-label">Supported Platform</span>
+                        <span class="spec-value text-blue">MT5 Only</span>
+                    </div>
+                    <div class="spec-card">
+                        <span class="spec-label">Optimized Symbols</span>
+                        <span class="spec-value text-green">EURUSD, GBPUSD, XAUUSD</span>
+                    </div>
+                    <div class="spec-card">
+                        <span class="spec-label">Timeframes</span>
+                        <span class="spec-value text-blue">M5 (Rec.), M1, M15</span>
+                    </div>
+                    <div class="spec-card">
+                        <span class="spec-label">Minimum Deposit</span>
+                        <span class="spec-value text-green">$500 (for 0.02 lots)</span>
+                    </div>
+                </div>
+
+                <div class="performance-table-container">
+                    <table class="metrics-table" id="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Trading Parameter</th>
+                                <th>Conservative Profile</th>
+                                <th>Balanced Profile</th>
+                                <th>Aggressive Profile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Average Monthly Return</td>
+                                <td class="text-green font-semibold">2% - 4%</td>
+                                <td class="text-green font-semibold">6% - 8%</td>
+                                <td class="text-green font-semibold">12% - 15%</td>
+                            </tr>
+                            <tr>
+                                <td>Max Historical Drawdown</td>
+                                <td class="text-red font-semibold">4.8%</td>
+                                <td class="text-red font-semibold">11.3%</td>
+                                <td class="text-red font-semibold">24.5%</td>
+                            </tr>
+                            <tr>
+                                <td>Profit Factor</td>
+                                <td>1.64</td>
+                                <td>1.82</td>
+                                <td>1.51</td>
+                            </tr>
+                            <tr>
+                                <td>Recovery Factor</td>
+                                <td>3.4</td>
+                                <td>4.2</td>
+                                <td>2.9</td>
+                            </tr>
+                            <tr>
+                                <td>Recommended Leverage</td>
+                                <td>1:30 - 1:100</td>
+                                <td>1:100 - 1:200</td>
+                                <td>1:200 - 1:500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" id="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo-area">
+                    <img src="assets/logo.jpg" alt="Ronex Logo" class="logo-img">
+                    <span class="logo-text">RONEX<span class="accent-dot">.</span></span>
+                </div>
+                <p class="brand-desc">Institutional-grade algorithmic trading strategies tailored for the retail trader.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h5>Navigation</h5>
+                <a href="strategy.html">About Strategy</a>
+                <a href="index.html#features">Core Features</a>
+                <a href="calculator.html">ROI Calculator</a>
+                <a href="calculator.html#performance">Stats</a>
+            </div>
+
+            <div class="footer-links">
+                <h5>MQL5 Community</h5>
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank">MQL5 Product Page</a>
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank">Expert Advisor Demo</a>
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank">Reviews & Comments</a>
+            </div>
+        </div>
+
+        <div class="container disclaimer-container">
+            <div class="risk-disclaimer">
+                <strong>High-Risk Investment Warning:</strong> Trading Foreign Exchange (Forex) on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade foreign exchange or use algorithmic trading systems, you should carefully consider your investment objectives, level of experience, and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment. You should be aware of all the risks associated with foreign exchange trading and seek advice from an independent financial advisor if you have any doubts. Past performance of algorithmic tools like Ronex is not indicative of future results.
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ronex Algo. All Rights Reserved. Not affiliated with MetaQuotes Ltd.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Telegram"><i data-lucide="send"></i></a>
+                    <a href="#" aria-label="Youtube"><i data-lucide="youtube"></i></a>
+                    <a href="#" aria-label="Discord"><i data-lucide="message-square"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronex | Frequently Asked Questions & Support</title>
+    <meta name="description" content="Find answers to common questions about the Ronex Expert Advisor, capital requirements, VPS optimization, and how to get developer support.">
+    <!-- Google Fonts: Outfit for sleek, modern tech look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons for clean visual cues -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header" id="site-header">
+        <div class="container header-container">
+            <div class="logo-area">
+                <img src="assets/logo.jpg" alt="Ronex Logo" class="logo-img">
+                <span class="logo-text">RONEX<span class="accent-dot">.</span></span>
+            </div>
+            
+            <nav class="desktop-nav" id="main-navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="strategy.html" class="nav-link">Strategy</a>
+                <a href="calculator.html" class="nav-link">ROI Simulator</a>
+                <a href="setup.html" class="nav-link">Setup Guide</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank" class="btn btn-primary btn-nav" id="nav-cta">
+                    <span>Get Ronex</span>
+                    <i data-lucide="arrow-up-right" class="icon-sm"></i>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                    <i data-lucide="menu" id="menu-icon-hamburger"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-nav-drawer">
+        <div class="drawer-header">
+            <div class="logo-area">
+                <img src="assets/logo.jpg" alt="Ronex Logo" class="logo-img">
+                <span class="logo-text">RONEX<span class="accent-dot">.</span></span>
+            </div>
+            <button class="mobile-menu-close" id="mobile-menu-close-btn" aria-label="Close Menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="strategy.html" class="mobile-nav-link">Strategy</a>
+            <a href="calculator.html" class="mobile-nav-link">ROI Simulator</a>
+            <a href="setup.html" class="mobile-nav-link">Setup Guide</a>
+            <a href="faq.html" class="mobile-nav-link">FAQ</a>
+            <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank" class="btn btn-primary mobile-cta">Get Ronex on MQL5</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Subpage Hero -->
+        <section class="subpage-hero">
+            <div class="container">
+                <div class="badge-container">
+                    <span class="glow-badge"><i data-lucide="help-circle" class="icon-sm" style="margin-right: 6px;"></i>FAQ & SUPPORT</span>
+                </div>
+                <h1 class="subpage-title">Help & <span class="gradient-text">Support Center</span></h1>
+                <p class="subpage-subtitle">Find answers to frequently asked questions about the Ronex Expert Advisor and learn how to get professional assistance.</p>
+            </div>
+        </section>
+
+        <!-- FAQ Accordion Section -->
+        <section class="faq-section" id="faq" style="padding-top: 0;">
+            <div class="container">
+                <div class="faq-accordion">
+                    <div class="faq-item" id="faq-item-1">
+                        <button class="faq-question" id="faq-btn-1" aria-expanded="false" aria-controls="faq-ans-1">
+                            <span>What is the minimum capital required to run Ronex?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1">
+                            <p>We recommend starting with at least $500 on a standard account, or $50 on a cent/micro account. This ensures you can apply sound risk management parameters with the lowest lot size (0.01).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" id="faq-item-2">
+                        <button class="faq-question" id="faq-btn-2" aria-expanded="false" aria-controls="faq-ans-2">
+                            <span>Does it require a VPS (Virtual Private Server)?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2">
+                            <p>While not strictly mandatory, a VPS is highly recommended. The expert advisor needs to monitor the charts 24/5 to execute entries and exit trades. Running on a VPS prevents local internet drops, power cuts, and computer sleep states from interfering with the EA.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" id="faq-item-3">
+                        <button class="faq-question" id="faq-btn-3" aria-expanded="false" aria-controls="faq-ans-3">
+                            <span>Which MetaTrader version is supported?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3">
+                            <p>Ronex is designed strictly for the MetaTrader 5 (MT5) platform. MetaTrader 5 offers enhanced speed, improved multi-thread backtesting operations, and advanced visual capabilities that drive our interactive Chart HUD dashboard.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" id="faq-item-4">
+                        <button class="faq-question" id="faq-btn-4" aria-expanded="false" aria-controls="faq-ans-4">
+                            <span>Is Ronex based on a martingale or grid strategy?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4">
+                            <p>No, Ronex uses trend pullback momentum combined with price action engulfing triggers. For defensive scaling, it utilizes a highly conservative recovery smart grid capped at a maximum of 3 levels by default. It is not an aggressive martingale that risks capital blowouts, and includes absolute daily loss/profit limits to protect account equity.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" id="faq-item-5">
+                        <button class="faq-question" id="faq-btn-5" aria-expanded="false" aria-controls="faq-ans-5">
+                            <span>How do I get set files and premium support?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5">
+                            <p>After buying or testing Ronex, send us a screenshot of your purchase on the MQL5 platform to gain immediate access to our private Discord/Telegram channels where we publish optimized monthly set files and provide developer assistance.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="setup-cta-box" style="margin-top: 80px; background: rgba(15, 22, 42, 0.35);">
+                    <h3>Need direct assistance?</h3>
+                    <p>Our dedicated development and support team are available to guide you through set optimizations and setups.</p>
+                    <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank" class="btn btn-primary btn-large">
+                        <span>Send Message on MQL5 Profile</span>
+                        <i data-lucide="send"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" id="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo-area">
+                    <img src="assets/logo.jpg" alt="Ronex Logo" class="logo-img">
+                    <span class="logo-text">RONEX<span class="accent-dot">.</span></span>
+                </div>
+                <p class="brand-desc">Institutional-grade algorithmic trading strategies tailored for the retail trader.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h5>Navigation</h5>
+                <a href="strategy.html">About Strategy</a>
+                <a href="index.html#features">Core Features</a>
+                <a href="calculator.html">ROI Calculator</a>
+                <a href="calculator.html#performance">Stats</a>
+            </div>
+
+            <div class="footer-links">
+                <h5>MQL5 Community</h5>
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank">MQL5 Product Page</a>
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank">Expert Advisor Demo</a>
+                <a href="https://www.mql5.com/en/market/product/177969?source=Site+Profile" target="_blank">Reviews & Comments</a>
+            </div>
+        </div>
+
+        <div class="container disclaimer-container">
+            <div class="risk-disclaimer">
+                <strong>High-Risk Investment Warning:</strong> Trading Foreign Exchange (Forex) on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade foreign exchange or use algorithmic trading systems, you should carefully consider your investment objectives, level of experience, and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment. You should be aware of all the risks associated with foreign exchange trading and seek advice from an independent financial advisor if you have any doubts. Past performance of algorithmic tools like Ronex is not indicative of future results.
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ronex Algo. All Rights Reserved. Not affiliated with MetaQuotes Ltd.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Telegram"><i data-lucide="send"></i></a>
+                    <a href="#" aria-label="Youtube"><i data-lucide="youtube"></i></a>
+                    <a href="#" aria-label="Discord"><i data-lucide="message-square"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
