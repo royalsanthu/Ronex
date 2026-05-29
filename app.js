@@ -214,7 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ...document.querySelectorAll('.calculator-box'),
         ...document.querySelectorAll('.performance-table-container'),
         ...document.querySelectorAll('.parameters-card'),
-        ...document.querySelectorAll('.spec-card')
+        ...document.querySelectorAll('.spec-card'),
+        ...document.querySelectorAll('.backtest-card')
     ];
 
     if (revealElements.length > 0) {
@@ -236,4 +237,54 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => revealObserver.observe(el));
     }
 
+});
+
+/* ==========================================================================
+   7. INTERACTIVE LIGHTBOX FOR MT5 BACKTEST REPORTS
+   ========================================================================== */
+window.openLightbox = (src, captionText) => {
+    const modal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    
+    if (modal && lightboxImg && caption) {
+        lightboxImg.src = src;
+        caption.textContent = captionText;
+        modal.style.display = 'flex';
+        
+        // Force reflow and add active class for transition
+        setTimeout(() => {
+            modal.classList.add('active');
+        }, 10);
+        
+        document.body.style.overflow = 'hidden'; // Disable background scrolling
+    }
+};
+
+window.closeLightbox = () => {
+    const modal = document.getElementById('lightbox-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        
+        // Hide display after transition completes
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+        
+        document.body.style.overflow = ''; // Re-enable background scrolling
+    }
+};
+
+// Close lightbox on Escape key press or clicking outside the image
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        window.closeLightbox();
+    }
+});
+
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('lightbox-modal');
+    if (modal && modal.classList.contains('active') && e.target === modal) {
+        window.closeLightbox();
+    }
 });

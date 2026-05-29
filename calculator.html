@@ -181,6 +181,75 @@
                     </div>
                 </div>
 
+                <!-- MT5 Visual Backtest Reports -->
+                <div class="visual-backtest-header" style="margin-top: 80px; margin-bottom: 40px; text-align: center;">
+                    <h3 class="section-title" style="font-size: 2rem; margin-bottom: 12px;">Verified YTD MT5 Backtest Reports</h3>
+                    <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;">Direct graphical analytics exported from MetaTrader 5 backtesting simulations representing active year performance.</p>
+                </div>
+
+                <div class="backtest-grid">
+                    <!-- Balance Curve Card -->
+                    <div class="backtest-card">
+                        <div class="backtest-img-wrapper" onclick="openLightbox('assets/backtest_balance.png', 'Equity & Balance Growth')">
+                            <img src="assets/backtest_balance.png" alt="Equity and Balance Growth Curve" class="backtest-img">
+                            <div class="zoom-overlay">
+                                <i data-lucide="zoom-in" class="icon-md"></i>
+                            </div>
+                        </div>
+                        <div class="backtest-card-content">
+                            <h4 class="backtest-card-title">Equity & Balance Growth</h4>
+                            <p class="backtest-card-desc">Steady capital progression demonstrating highly consistent win rate. Over 2,600 consecutive trades, the balance scaled from $847 to $2,222, proving structural robustness across multiple market cycles.</p>
+                        </div>
+                    </div>
+
+                    <!-- Excursion Analysis Card -->
+                    <div class="backtest-card">
+                        <div class="backtest-img-wrapper" onclick="openLightbox('assets/backtest_mfe_mae.png', 'Excursion Analysis (MFE / MAE)')">
+                            <img src="assets/backtest_mfe_mae.png" alt="MFE and MAE Excursion Plot" class="backtest-img">
+                            <div class="zoom-overlay">
+                                <i data-lucide="zoom-in" class="icon-md"></i>
+                            </div>
+                        </div>
+                        <div class="backtest-card-content">
+                            <h4 class="backtest-card-title">Excursion Analysis (MFE / MAE)</h4>
+                            <p class="backtest-card-desc">Maximum Favorable Excursion (MFE) vs. Maximum Adverse Excursion (MAE) distributions. Demonstrates an outstanding reward-to-risk ratio on trades, with highly controlled adverse risk limits.</p>
+                        </div>
+                    </div>
+
+                    <!-- Chronological Distribution Card -->
+                    <div class="backtest-card">
+                        <div class="backtest-img-wrapper" onclick="openLightbox('assets/backtest_distribution.png', 'Chronological Trading Distribution')">
+                            <img src="assets/backtest_distribution.png" alt="Hourly, Daily, and Monthly Trading Distribution" class="backtest-img">
+                            <div class="zoom-overlay">
+                                <i data-lucide="zoom-in" class="icon-md"></i>
+                            </div>
+                        </div>
+                        <div class="backtest-card-content">
+                            <h4 class="backtest-card-title">Trading Session & Time Distribution</h4>
+                            <p class="backtest-card-desc">Hourly, daily, and monthly distribution metrics. Trade frequency and performance confluences show excellent execution alignment across Asia, Europe, and US sessions, with optimal recovery dynamics.</p>
+                        </div>
+                    </div>
+
+                    <!-- Trade Duration Card -->
+                    <div class="backtest-card">
+                        <div class="backtest-img-wrapper" onclick="openLightbox('assets/backtest_duration.png', 'Trade Duration Profile')">
+                            <img src="assets/backtest_duration.png" alt="Trade Duration vs Profit Scatter Plot" class="backtest-img">
+                            <div class="zoom-overlay">
+                                <i data-lucide="zoom-in" class="icon-md"></i>
+                            </div>
+                        </div>
+                        <div class="backtest-card-content">
+                            <h4 class="backtest-card-title">Trade Duration Profiles</h4>
+                            <p class="backtest-card-desc">Profit vs. Time-in-Trade analysis showing high-velocity execution profiles. Most profitable trades close quickly, reducing capital exposure to prolonged market shifts and overnight risks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-backtest-header" style="margin-top: 80px; margin-bottom: 30px; text-align: center;">
+                    <h3 class="section-title" style="font-size: 1.75rem; margin-bottom: 12px;">Consolidated Statistics (10-Year Backtest)</h3>
+                    <p class="section-subtitle" style="max-width: 600px; margin: 0 auto;">Simulated return and recovery limits categorized by historical trading profile risk allocations.</p>
+                </div>
+
                 <div class="performance-table-container">
                     <table class="metrics-table" id="stats-table">
                         <thead>
@@ -271,6 +340,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox Modal for high-resolution backtest images -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged Backtest Report">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
 
     <!-- App Script -->
     <script src="app.js"></script>

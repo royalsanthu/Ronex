@@ -1589,4 +1589,204 @@ section {
     line-height: 1.6;
 }
 
+/* ==========================================================================
+   17. VERIFIED YTD MT5 BACKTEST REPORTS SECTION
+   ========================================================================== */
+.backtest-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+    margin-top: 20px;
+}
+
+.backtest-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-main);
+}
+
+.backtest-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 240, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 240, 255, 0.06);
+}
+
+.backtest-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 7.5;
+    background: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.backtest-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform var(--transition-normal);
+    background: #ffffff;
+}
+
+.zoom-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 7, 18, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.zoom-overlay i {
+    color: var(--color-primary);
+    filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
+    transform: scale(0.9);
+    transition: transform var(--transition-normal);
+}
+
+.backtest-img-wrapper:hover .zoom-overlay {
+    opacity: 1;
+}
+
+.backtest-img-wrapper:hover .zoom-overlay i {
+    transform: scale(1);
+}
+
+.backtest-img-wrapper:hover .backtest-img {
+    transform: scale(1.02);
+}
+
+.backtest-card-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.backtest-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.backtest-card-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Lightbox Modal Design */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(3, 7, 18, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 0 50px rgba(0, 240, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.lightbox-modal.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-caption {
+    margin: 20px auto 0 auto;
+    text-align: center;
+    color: var(--text-main);
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 45px;
+    color: var(--text-muted);
+    font-size: 44px;
+    font-weight: 300;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+/* Responsive adjustment for backtest report cards */
+@media (max-width: 992px) {
+    .backtest-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .backtest-img-wrapper {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (max-width: 768px) {
+    .lightbox-close {
+        top: 20px;
+        right: 25px;
+        font-size: 36px;
+    }
+    
+    .lightbox-caption {
+        font-size: 1.1rem;
+        margin-top: 15px;
+    }
+}
+
+
 
